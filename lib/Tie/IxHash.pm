@@ -13,7 +13,7 @@ use integer;
 require Tie::Hash;
 @ISA = qw(Tie::Hash);
 
-$VERSION = $VERSION = '1.2';
+$VERSION = $VERSION = '1.21';
 
 #
 # standard tie functions
@@ -348,11 +348,11 @@ sub _lrange {
 #
 sub Keys   { 
   my($s) = shift;
-  return @{$s->[1]} unless @_;
-
-  my(@k);
-  for (@_) { push( @k, $s->[1][$_]); }
-  return @k;
+  return ( @_ == 1
+	 ? $s->[1][$_[0]]
+	 : ( @_
+	   ? @{$s->[1]}[@_]
+	   : @{$s->[1]} ) );
 }
 
 #
@@ -361,11 +361,11 @@ sub Keys   {
 #
 sub Values {
   my($s) = shift;
-  return @{$s->[2]} unless @_;
-
-  my(@v);
-  for (@_) { push( @v, $s->[2][$_] ); }
-  return @v;
+  return ( @_ == 1
+	 ? $s->[2][$_[0]]
+	 : ( @_
+	   ? @{$s->[2]}[@_]
+	   : @{$s->[2]} ) );
 }
 
 #
@@ -373,9 +373,7 @@ sub Values {
 #
 sub Indices { 
   my($s) = shift;
-  my(@i);
-  for (@_) { push( @i, $s->[0]{$_} ); }
-  return @i;
+  return ( @_ == 1 ? $s->[0]{$_[0]} : @{$s->[0]}{@_} );
 }
 
 #
@@ -384,7 +382,7 @@ sub Indices {
 # owing to preextended arrays
 #
 sub Length {
- return scalar(@{$_[0][1]});
+ return scalar @{$_[0]->[1]};
 }
 
 #
@@ -495,17 +493,35 @@ pair, first C<DELETE> the IxHash element.
 
 =item Keys
 
-Returns a list of IxHash element keys corresponding to the list of supplied
-indices.  Returns all the keys if called without arguments.
+Returns an array of IxHash element keys corresponding to the list of supplied
+indices.  Returns an array of all the keys if called without arguments.
+Note the return value is mostly only useful when used in a list context
+(since perl will convert it to the number of elements in the array when
+used in a scalar context, and that may not be very useful).
+
+If a single argument is given, returns the single key corresponding to
+the index.  This is usable in either scalar or list context.
 
 =item Values
 
-Returns a list of IxHash element values corresponding to the list of
-supplied indices.  Returns all the values if called without arguments.
+Returns an array of IxHash element values corresponding to the list of supplied
+indices.  Returns an array of all the values if called without arguments.
+Note the return value is mostly only useful when used in a list context
+(since perl will convert it to the number of elements in the array when
+used in a scalar context, and that may not be very useful).
+
+If a single argument is given, returns the single value corresponding to
+the index.  This is usable in either scalar or list context.
 
 =item Indices
 
-Returns the indices corresponding to the supplied list of keys.
+Returns an array of indices corresponding to the supplied list of keys.
+Note the return value is mostly only useful when used in a list context
+(since perl will convert it to the number of elements in the array when
+used in a scalar context, and that may not be very useful).
+
+If a single argument is given, returns the single index corresponding to
+the key.  This is usable in either scalar or list context.
 
 =item Delete
 
@@ -604,7 +620,7 @@ modify it under the same terms as Perl itself.
 
 =head1 VERSION
 
-Version 1.2    17 Feb 1997
+Version 1.21    20 Nov 1997
 
 
 =head1 SEE ALSO

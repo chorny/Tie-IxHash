@@ -6,6 +6,11 @@ HISTORY - release history for Tie::IxHash
 
 =over 8
 
+=item 1.21  (5 January 1998)
+
+Key()/Values()/Indices() now return a single value when called with single
+argument (makes them useful in scalar contexts)
+
 =item 1.2
 
 Repackaged into a tarball.

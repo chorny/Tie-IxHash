@@ -2,7 +2,7 @@
 use Tie::IxHash;
 
 my $TNUM = 0;
-print "1..22\n";
+print "1..25\n";
 
 sub T { print $_[0] ? "ok " : "not ok ", ++$TNUM, "\n" }
 my %bar;
@@ -26,6 +26,10 @@ $ixh->SortByValue;
 T 'z|f|m|n' eq join '|', $ixh->Keys;
 $ixh->SortByKey;
 T 'f|m|n|z' eq join '|', $ixh->Keys;
+
+T 'm' eq $ixh->Keys(1);
+T 'Y' eq $ixh->Values(2);
+T 3 == $ixh->Indices('z');
 
 %bar = ('a' => 9, 'c' => 6, 'z' => 7, 'f' => 1);
 delete $bar{'z'};
