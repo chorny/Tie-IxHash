@@ -1,0 +1,24 @@
+=head1 NAME
+
+HISTORY - release history for Tie::IxHash
+
+=head1 DESCRIPTION
+
+=over 8
+
+=item 1.2
+
+Repackaged into a tarball.
+
+Added a testsuite.
+
+C<s/TieHash/Tie::Hash/g> suggested by Michael De La Rue <miked@ed.ac.uk>.
+
+=item 1.1
+
+Initial release (ancient).
+
+=back
+
+=cut
+
