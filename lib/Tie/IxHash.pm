@@ -9,8 +9,10 @@
 require 5.003;
 
 package Tie::IxHash;
+use strict;
 use integer;
 require Tie::Hash;
+use vars qw/@ISA $VERSION/;
 @ISA = qw(Tie::Hash);
 
 $VERSION = $VERSION = '1.21';
@@ -433,7 +435,7 @@ Tie::IxHash - ordered associative arrays for Perl
     # simple usage
     use Tie::IxHash;
     tie HASHVARIABLE, Tie::IxHash [, LIST];
-    
+
     # OO interface with more powerful features
     use Tie::IxHash;
     TIEOBJECT = Tie::IxHash->new( [LIST] );
@@ -567,7 +569,7 @@ Reorders the IxHash elements by textual comparison of the values.
     @keys = keys %myhash;
     @values = values %myhash;
     print("y") if exists $myhash{third};
-    
+
     # OO interface
     $t = Tie::IxHash->new(first => 1, second => 2, third => 3);
     $t->Push(fourth => 4); # same as $myhash{'fourth'} = 4;
@@ -575,7 +577,7 @@ Reorders the IxHash elements by textual comparison of the values.
     $t->Unshift(neg => -1, zeroth => 0); 
     ($k, $v) = $t->Shift;  # $k is 'neg', $v is -1
     @oneandtwo = $t->Splice(1, 2, foo => 100, bar => 101);
-    
+
     @keys = $t->Keys;
     @values = $t->Values;
     @indices = $t->Indices('foo', 'zeroth');
