@@ -4,3 +4,4 @@ Changes
 Makefile.PL
 lib/Tie/IxHash.pm
 t/ixhash.t
+t/pod.t
