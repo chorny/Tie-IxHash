@@ -622,7 +622,7 @@ modify it under the same terms as Perl itself.
 
 =head1 VERSION
 
-Version 1.21    20 Nov 1997
+Version 1.22    27 February 2010
 
 
 =head1 SEE ALSO
