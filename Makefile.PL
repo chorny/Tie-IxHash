@@ -9,11 +9,9 @@ WriteMakefile1(
       repository => 'git://github.com/chorny/Tie-IxHash.git',
     },
   },
-  #BUILD_REQUIRES => {
-  #},
-  SKIP => [qw(static dynamic)],
-  'linkext' => {LINKTYPE => '' },
-  'dist' => {COMPRESS=>'gzip -9f', SUFFIX => 'gz'},
+  #SKIP => [qw(static dynamic)],
+  #'linkext' => {LINKTYPE => '' },
+  #'dist' => {COMPRESS=>'gzip -9f', SUFFIX => 'gz'},
 );
 
 sub WriteMakefile1 {  #Written by Alexandr Ciornii, version 0.21. Added by eumm-upgrade.
