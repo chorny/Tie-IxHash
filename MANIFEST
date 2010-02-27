@@ -2,6 +2,8 @@ MANIFEST
 README
 Changes
 Makefile.PL
+Build.PL
 lib/Tie/IxHash.pm
 t/ixhash.t
 t/pod.t
+META.yml
