@@ -9,6 +9,7 @@ WriteMakefile1(
       repository => 'git://github.com/chorny/Tie-IxHash.git',
     },
   },
+  PL_FILES => {},
   #SKIP => [qw(static dynamic)],
   #'linkext' => {LINKTYPE => '' },
   #'dist' => {COMPRESS=>'gzip -9f', SUFFIX => 'gz'},
