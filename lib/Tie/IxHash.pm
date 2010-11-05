@@ -98,6 +98,15 @@ sub NEXTKEY {
 
 sub new { TIEHASH(@_) }
 
+sub Clear {
+  my $s = shift;
+  $s->[0] = {};   # hashkey index
+  $s->[1] = [];   # array of keys
+  $s->[2] = [];   # array of data
+  $s->[3] = 0;    # iter count
+  return;
+}
+
 #
 # add pairs to end of indexed hash
 # note that if a supplied key exists, it will not be reordered
@@ -554,6 +563,10 @@ Reorders the IxHash elements by textual comparison of the keys.
 =item SortByValue
 
 Reorders the IxHash elements by textual comparison of the values.
+
+=item Clear
+
+Resets the IxHash to its pristine state: with no elements at all.
 
 =back
 
