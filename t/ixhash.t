@@ -2,7 +2,7 @@
 use Tie::IxHash;
 
 my $TNUM = 0;
-print "1..25\n";
+print "1..26\n";
 
 sub T { print $_[0] ? "ok " : "not ok ", ++$TNUM, "\n" }
 my %bar;
@@ -54,4 +54,7 @@ $ixh->Pop;
 T 'z|7|o|2' eq join '|', %bar;
 $ixh->Splice($ixh->Length,0,$ixh->Pop);
 T 'z|7|o|2' eq join '|', %bar;
+
+$ixh->Clear;
+T $ixh->Length == 0;
 

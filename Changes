@@ -6,6 +6,10 @@ HISTORY - release history for Tie::IxHash
 
 =over 8
 
+=item 1.23 (8 November 2010)
+
+New method Clear()
+
 =item 1.22  (27 February 2010)
 
 Build.PL added
