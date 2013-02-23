@@ -610,6 +610,9 @@ Resets the IxHash to its pristine state: with no elements at all.
 You cannot specify a negative length to C<Splice>. Negative indexes are OK,
 though.
 
+
+=head1 NOTE
+
 Indexing always begins at 0 (despite the current C<$[> setting) for 
 all the functions.
 
