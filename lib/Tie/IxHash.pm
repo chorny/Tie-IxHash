@@ -443,7 +443,7 @@ Tie::IxHash - ordered associative arrays for Perl
 
     # simple usage
     use Tie::IxHash;
-    tie HASHVARIABLE, Tie::IxHash [, LIST];
+    tie HASHVARIABLE, 'Tie::IxHash' [, LIST];
 
     # OO interface with more powerful features
     use Tie::IxHash;
@@ -576,7 +576,7 @@ Resets the IxHash to its pristine state: with no elements at all.
     use Tie::IxHash;
 
     # simple interface
-    $t = tie(%myhash, Tie::IxHash, 'a' => 1, 'b' => 2);
+    $t = tie(%myhash, 'Tie::IxHash', 'a' => 1, 'b' => 2);
     %myhash = (first => 1, second => 2, third => 3);
     $myhash{fourth} = 4;
     @keys = keys %myhash;
