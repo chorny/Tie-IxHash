@@ -6,7 +6,7 @@
 # See below for documentation.
 #
 
-require 5.003;
+require 5.005;
 
 package Tie::IxHash;
 use strict;
@@ -635,7 +635,7 @@ modify it under the same terms as Perl itself.
 
 =head1 VERSION
 
-Version 1.22    27 February 2010
+Version 1.23
 
 
 =head1 SEE ALSO
