@@ -6,7 +6,7 @@ HISTORY - release history for Tie::IxHash
 
 =over 8
 
-=item 1.23 ()
+=item 1.23  (24 February 2013)
 
 New method Clear()
 

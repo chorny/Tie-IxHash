@@ -15,7 +15,7 @@ require Tie::Hash;
 use vars qw/@ISA $VERSION/;
 @ISA = qw(Tie::Hash);
 
-$VERSION = $VERSION = '1.22_01';
+$VERSION = $VERSION = '1.23';
 
 #
 # standard tie functions
