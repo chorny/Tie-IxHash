@@ -15,7 +15,7 @@ require Tie::Hash;
 use vars qw/@ISA $VERSION/;
 @ISA = qw(Tie::Hash);
 
-$VERSION = $VERSION = '1.22';
+$VERSION = $VERSION = '1.22_01';
 
 #
 # standard tie functions
@@ -65,7 +65,10 @@ sub DELETE {
   if (exists $s->[0]{$k}) {
     my($i) = $s->[0]{$k};
     for ($i+1..$#{$s->[1]}) {    # reset higher elt indexes
-      $s->[0]{$s->[1][$_]}--;    # timeconsuming, is there is better way?
+      $s->[0]{ $s->[1][$_] }--;    # timeconsuming, is there is better way?
+    }
+    if ( $i == $s->[3]-1 ) {
+      $s->[3]--;
     }
     delete $s->[0]{$k};
     splice @{$s->[1]}, $i, 1;
@@ -84,7 +87,7 @@ sub FIRSTKEY {
 }
 
 sub NEXTKEY {
-  return $_[0][1][$_[0][3]++] if ($_[0][3] <= $#{$_[0][1]});
+  return $_[0][1][ $_[0][3]++ ] if ($_[0][3] <= $#{ $_[0][1] } );
   return undef;
 }
 

@@ -6,9 +6,11 @@ HISTORY - release history for Tie::IxHash
 
 =over 8
 
-=item 1.23 (8 November 2010)
+=item 1.23 ()
 
 New method Clear()
+
+Deleting current element when doing cycle using each will work (test by OLEG, RT#82248)
 
 =item 1.22  (27 February 2010)
 

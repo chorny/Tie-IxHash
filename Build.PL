@@ -8,6 +8,9 @@ my $build = Module::Build->new(
   'requires' => {
     'perl' => '5.005',
   },
+  'build_requires' => {
+    'Test::More' => 0,
+  },
   'meta_merge' => {
     'resources' => {
       'repository' => 'git://github.com/chorny/Tie-IxHash.git'
