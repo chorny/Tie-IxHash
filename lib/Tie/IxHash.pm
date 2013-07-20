@@ -403,7 +403,7 @@ sub Length {
 # Reorder the hash in the supplied key order
 #
 # warning: any unsupplied keys will be lost from the hash
-# any supplied keys that dont exist in the hash will be ignored
+# any supplied keys that don't exist in the hash will be ignored
 #
 sub Reorder {
   my($s) = shift;
