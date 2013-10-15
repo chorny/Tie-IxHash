@@ -1,43 +1,24 @@
-=head1 NAME
+Release history for Perl module Tie::IxHash
 
-HISTORY - release history for Tie::IxHash
+1.23 2013-02-24
+ - New method Clear()
+ - Deleting current element when doing cycle using each will work
+   (test by OLEG, RT#82248)
 
-=head1 DESCRIPTION
+1.22 2010-02-27
+ - Build.PL added
+ - Better META.yml
+ - Distribution upgrade
 
-=over 8
+1.21 1998-01-05
 
-=item 1.23  (24 February 2013)
+ - Key()/Values()/Indices() now return a single value when called with single
+   argument (makes them useful in scalar contexts)
 
-New method Clear()
+1.2  1997-02-18
+ - Repackaged into a tarball.
+ - Added a testsuite.
+ - C<s/TieHash/Tie::Hash/g> suggested by Michael De La Rue <miked@ed.ac.uk>.
 
-Deleting current element when doing cycle using each will work (test by OLEG, RT#82248)
-
-=item 1.22  (27 February 2010)
-
-Build.PL added
-
-Better META.yml
-
-Distribution upgrade
-
-=item 1.21  (5 January 1998)
-
-Key()/Values()/Indices() now return a single value when called with single
-argument (makes them useful in scalar contexts)
-
-=item 1.2   (18 February 1997)
-
-Repackaged into a tarball.
-
-Added a testsuite.
-
-C<s/TieHash/Tie::Hash/g> suggested by Michael De La Rue <miked@ed.ac.uk>.
-
-=item 1.1
-
-Initial release (ancient).
-
-=back
-
-=cut
-
+1.1  1995-09-25
+ - Initial release (ancient).
