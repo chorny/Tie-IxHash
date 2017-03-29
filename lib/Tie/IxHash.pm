@@ -15,7 +15,7 @@ require Tie::Hash;
 use vars qw/@ISA $VERSION/;
 @ISA = qw(Tie::Hash);
 
-$VERSION = $VERSION = '1.23';
+$VERSION = $VERSION = '1.24';
 
 #
 # standard tie functions
@@ -383,6 +383,26 @@ sub Values {
 }
 
 #
+# Returns array with alternating key and value for supplied indices
+# or for all indices if no args
+#
+
+sub Zipped  {
+  my($s) = shift;
+  return map { $s->[1][$_], $s->[2][$_] } @_ ? @_ : 0..$#{$s->[1]};
+}
+
+#
+# Returns array of arrays with key-value pairs for supplied indices
+# or for all indices if no args
+#
+
+sub Paired {
+  my($s) = shift;
+  return map { [ $s->[1][$_], $s->[2][$_] ] } @_ ? @_ : 0..$#{$s->[1]};
+}
+
+#
 # get indices of specified hash keys
 #
 sub Indices { 
@@ -458,6 +478,8 @@ Tie::IxHash - ordered associative arrays for Perl
     TIEOBJECT->Unshift( LIST );
     TIEOBJECT->Keys( [LIST] );
     TIEOBJECT->Values( [LIST] );
+    TIEOBJECT->Zipped( [LIST] );
+    TIEOBJECT->Paired( [LIST] );
     TIEOBJECT->Indices( LIST );
     TIEOBJECT->Delete( [LIST] );
     TIEOBJECT->Replace( OFFSET, VALUE, [KEY] );
@@ -536,6 +558,28 @@ used in a scalar context, and that may not be very useful).
 
 If a single argument is given, returns the single index corresponding to
 the key.  This is usable in either scalar or list context.
+
+=item Zipped
+
+Returns an array of alternating keys and values corresponding to the list of supplied
+indices.  Returns an array with all keys and values if called without arguments.
+Alternating means the returned array has the form C<(Key1, Value1, Key2, Value2, ...)>.
+See also L<List::MoreUtils/zip> for more detailed description of the return value.
+
+Note the return value is mostly only useful when used in a list context
+(since perl will convert it to the number of elements in the array when
+used in a scalar context, and that may not be very useful).
+
+=item Paired
+
+Returns an array of key-value pairs corresponding to the list of supplied. Every
+pair is stored in a separate array, thus the form of the returned array is
+C<([Key1, Value1], [Key2, Value2], ... )>. Returns an array with all key-value
+pairs if called without arguments.
+
+Note the return value is mostly only useful when used in a list context
+(since perl will convert it to the number of elements in the array when
+used in a scalar context, and that may not be very useful).
 
 =item Delete
 
