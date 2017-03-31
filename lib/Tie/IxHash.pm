@@ -91,6 +91,11 @@ sub NEXTKEY {
   return undef;
 }
 
+sub SCALAR {
+  return scalar %{ $_[0]->[0] };
+}
+
+*CLEAR = \&Clear;
 
 
 #
