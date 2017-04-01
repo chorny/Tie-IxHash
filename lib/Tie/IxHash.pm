@@ -11,6 +11,7 @@ require 5.005;
 package Tie::IxHash;
 use strict;
 use integer;
+use overload '%{}' => \&ToHash;
 require Tie::Hash;
 use vars qw/@ISA $VERSION/;
 @ISA = qw(Tie::Hash);
@@ -96,6 +97,12 @@ sub SCALAR {
 }
 
 *CLEAR = \&Clear;
+
+sub ToHash {
+	tie(my %result, __PACKAGE__, $_[0]->Zipped);
+	return wantarray ? %result : \%result;
+}
+
 
 
 #
