@@ -37,7 +37,7 @@ T 'f|8|m|9|n|Y|z|1' eq join("|", map { join("|", @$_) } $ixh->Paired);
 my %baz = %{$ixh};
 T 'f|m|n|z' eq join("|", sort keys %baz);
 T '1|8|9|Y' eq join("|", sort values %baz);
-T %$ixh == 4;
+T !!$ixh;
 
 T 'f|8|n|Y' eq join("|", $ixh->Zipped(0,2));
 T 'f|8|n|Y' eq join("|", map { join("|", @$_) } $ixh->Paired(0,2));
