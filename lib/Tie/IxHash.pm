@@ -11,7 +11,7 @@ require 5.005;
 package Tie::IxHash;
 use strict;
 use integer;
-use overload '%{}' => \&ToHash;
+use overload '%{}' => \&ToHash; #, '0+' => \&Length;
 require Tie::Hash;
 use vars qw/@ISA $VERSION/;
 @ISA = qw(Tie::Hash);
