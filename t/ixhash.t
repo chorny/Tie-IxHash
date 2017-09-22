@@ -2,7 +2,7 @@
 use Tie::IxHash;
 
 my $TNUM = 0;
-print "1..35\n";
+print "1..32\n";
 
 sub T { print $_[0] ? "ok " : "not ok ", ++$TNUM, "\n" }
 my %bar;
@@ -34,10 +34,10 @@ T 3 == $ixh->Indices('z');
 T 'f|8|m|9|n|Y|z|1' eq join("|", $ixh->Zipped);
 T 'f|8|m|9|n|Y|z|1' eq join("|", map { join("|", @$_) } $ixh->Paired);
 
-my %baz = %{$ixh};
-T 'f|m|n|z' eq join("|", sort keys %baz);
-T '1|8|9|Y' eq join("|", sort values %baz);
-T !!$ixh;
+#my %baz = %{$ixh};
+#T 'f|m|n|z' eq join("|", sort keys %baz);
+#T '1|8|9|Y' eq join("|", sort values %baz);
+#T !!$ixh;
 
 T 'f|8|n|Y' eq join("|", $ixh->Zipped(0,2));
 T 'f|8|n|Y' eq join("|", map { join("|", @$_) } $ixh->Paired(0,2));
