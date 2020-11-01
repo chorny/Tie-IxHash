@@ -91,7 +91,9 @@ sub NEXTKEY {
   return undef;
 }
 
-
+sub SCALAR {
+  scalar @{ $_[0]->[1] } ? 1 : '';
+}
 
 #
 #
